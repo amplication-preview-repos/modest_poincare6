@@ -1,0 +1,16 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Ambassador {
+  createdAt DateTime @default(now())
+  document  String?
+  email     String?
+  id        String   @id @default(cuid())
+  updatedAt DateTime @updatedAt
+}
